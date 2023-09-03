@@ -3,7 +3,7 @@
 ## V1
 
 - Method: `POST` 
-- End Point: `{{BaseURL}}//v1/send` 
+- End Point: `https://open-smtp.onrender.com/v1/send` 
 - Body: 
 ```json
 {
