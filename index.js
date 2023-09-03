@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { v1Router } from "./routers/routes.v1.js";
 const PORT = process.env.PORT || 5001;

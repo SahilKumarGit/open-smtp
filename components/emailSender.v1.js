@@ -12,6 +12,10 @@ export async function SendEmails(req, res) {
     if (!config.user || emptyString(config.user)) return FailedResponse(res, 400, {}, `In config, user is required.`);
     if (!config.pass || emptyString(config.pass)) return FailedResponse(res, 400, {}, `In config, pass is required.`);
 
+    if (config.pass === "XXXX XXXX XXXX XXXX" && config.user === process.env.GMAIL_ADDRESS) {
+      config.pass = process.env.APP_PASSWORD;
+    }
+
     if (!payload.title || emptyString(payload.title)) return FailedResponse(res, 400, {}, `In payload, title is required.`);
     if (!payload.subject || emptyString(payload.subject)) return FailedResponse(res, 400, {}, `In payload, subject is required.`);
     if (!payload.to || emptyArray(payload.to)) return FailedResponse(res, 400, {}, `In payload, to is required as array of strings.`);
